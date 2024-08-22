@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(){
+	setlocale(LC_ALL, "portuguese");
+	
+	int N;
+	int a = 0, b = 1, c;
+	
+	//Solicitar ao usuário que insira o valor de N
+	printf("Digite o número de termos para a sequência de Fibonacci: ");
+	   scanf("%d", &N);
+	   
+    if (N <= 0 ) {
+    	printf("Por favor, insira um número positivo\n");
+    	return 1;
+    	
+	}
+	
+	//Exibe os primeiros N termos da sequência
+	printf("Sequência de Fibonacci com %d termos:\n", N);
+	
+	for (int i = 0; i < N; i++) {
+		if (i == 0) {
+			printf("%d ", a);
+		} else if (i == 1) {
+			printf("%d ", b);
+		} else {
+			c = a + b; //Calcula o próximo termo
+			a = b;     //Atualiza a
+			b = c;     //Atualiza b
+			printf("%d ", c);
+		}
+		
+	}
+	
+ printf("\n");	
+ return 0;
+}
