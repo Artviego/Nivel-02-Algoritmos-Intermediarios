@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(){
+	setlocale(LC_ALL, "portuguese");
+	
+	int numero, numeroInvertido = 0, digito;
+	
+	printf("Digite um número inteiro: ");
+	   scanf("%d", &numero);
+	   
+	//Lidar com números negativos
+	int numeroOriginal = numero;   // Armazenar o valor original para exibição final
+	if (numero < 0) {
+		numero = -numero;  // Trabalhar com o valor absoluto
+		
+	}
+	
+	// Inverta a ordem dos dígitos 
+	while (numero != 0) {
+		digito = numero % 10;    // Obter o último digito
+		numeroInvertido = numeroInvertido * 10 + digito;    // Construir o número invertido
+		numero = numero / 10;    // Remover o último dígito 
+		
+	}
+	
+	// Se o número original era negativo, inverta o sinal
+	if (numeroOriginal < 0) {
+		numeroInvertido = -numeroInvertido;
+		
+	}
+	
+	printf("Número invertido: %d\n", numeroInvertido);
+	
+	
+ return 0;
+ 
+}
