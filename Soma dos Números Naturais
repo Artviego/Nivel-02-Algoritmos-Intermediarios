@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(){
+	setlocale(LC_ALL, "portuguese");
+	
+	int N, soma;
+	
+	printf("Digite o valor de N: ");
+	  scanf("%d", &N);
+	  
+    
+	if (N >= 0) {
+		soma = N * (N+1)/2;
+		printf("A soma dos primeiros %d números naturais é %d\n", N, soma);
+	} else {
+		printf("Número inválido, tente novamente");
+	
+	}
+	
+ return 0;
+}
