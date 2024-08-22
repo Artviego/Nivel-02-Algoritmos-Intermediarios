@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(){
+	setlocale(LC_ALL, "portuguese");
+	
+	int base, expoente, i, resultado;
+	
+	printf("Digite o valor da  base: ");
+	   scanf("%d", &base);
+	   
+	printf("Digite o valor do expoente: ");
+	   scanf("%d", &expoente);
+	   
+	// Cálculo da potência
+	for (i = 0; i < expoente; i++) {
+		resultado *= base;
+	}
+
+	
+	printf("\nO valor de %d elevado a %d é: %d", base, expoente, resultado);
+	   	
+ return 0;
+ 
+}
