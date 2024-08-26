@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main() {
+  setlocale(LC_ALL, "Portuguese");
+
+  int a, numero1, numero2, resto; //Variáveis
+
+  printf("Digite dois números: ");
+  scanf("%d %d", &numero1, &numero2);
+
+  //Calcula o MMC
+  for(a = 1; a <= numero1 * numero2; a++) {
+    resto = (numero1 * a) % numero2;
+    if(resto == 0) break;
+  }
+  printf("\nO MMC entre %d e %d é: %d", numero1, numero2, a);
+
+
+  return 0;
+}
