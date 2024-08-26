@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+//Função que verifica o MDC
+int calcularMDC(int a, int b)
+{
+    // Tudo pode ser dividido por 0
+    if (a == 0)
+       return b;
+    if (b == 0)
+       return a;
+
+    // Caso de base
+    if (a == b)
+        return a;
+
+    // a é maior
+    if (a > b)
+        return calcularMDC(a-b, b);
+    return calcularMDC(a, b-a);
+}
+
+//Função Principal
+int main() {
+  setlocale(LC_ALL, "portuguese");
+
+  int numero1, numero2;
+
+  printf("Digite o primeiro número: ");
+    scanf("%d", &numero1);
+  printf("Digite o segundo número: ");
+    scanf("%d", &numero2);
+
+  int mdc = calcularMDC(numero1, numero2); //Chama o cálculo do MDC
+
+  printf("\nO MDC de %d e %d é: %d", numero1, numero2, mdc);
+
+
+
+
+
+    return 0;
+}
