@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int soma_divisores(int numero) {
+  int divisor, soma = 0;
+
+  for(divisor = 1; divisor <= numero/2; divisor++) {
+    soma += divisor;
+  }
+  return soma;
+}
+
+//Função que retorna 1 se o número é perfeito e 0 caso contrário
+int numeroPerfeito(int numero) {
+  //Se a soma dos divisores é igual ao número
+  if(soma_divisores(numero) == numero) {
+    return 1;
+  } else {
+    return 0;
+  }
+  
+}
+
+int main() {
+  setlocale(LC_ALL, "Portuguese");
+
+  int numero;
+
+  printf("Digite um número: ");
+    scanf("%d", &numero);
+
+  if(numeroPerfeito(numero) == 1) {
+    printf("\nO número %d é perfeito", numero);
+    
+  } else {
+    printf("\nO número %d não é perfeito", numero);
+  }
+
+  return 0;
+}
