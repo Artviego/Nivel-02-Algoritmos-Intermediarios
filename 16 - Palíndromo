@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+// Função para verificar se uma string é um palíndromo
+int isPalindrome(const char *str) {
+    int left = 0;
+    int right = strlen(str) - 1;
+
+    while (left < right) {
+        // Ignorar caracteres não alfanuméricos e converter para minúsculas
+        while (left < right && !isalnum((unsigned char)str[left])) {
+            left++;
+        }
+        while (left < right && !isalnum((unsigned char)str[right])) {
+            right--;
+        }
+
+        // Comparar caracteres
+        if (tolower((unsigned char)str[left]) != tolower((unsigned char)str[right])) {
+            return 0; // Não é palíndromo
+        }
+        left++;
+        right--;
+    }
+    return 1; // É palíndromo
+}
+
+// Função para verificar se a entrada é um número
+int isNumber(const char *str) {
+    // Checa se a string é composta apenas por dígitos
+    while (*str) {
+        if (!isdigit((unsigned char)*str)) {
+            return 0; // Não é um número
+        }
+        str++;
+    }
+    return 1; // É um número
+}
+
+// Função principal
+int main() {
+	setlocale(LC_ALL, "portuguese");
+	
+
+    char input[100];
+
+    printf("Digite uma palavra ou número: ");
+    fgets(input, sizeof(input), stdin);
+
+    // Remover o caractere de nova linha
+    input[strcspn(input, "\n")] = '\0';
+
+    // Verificar se a entrada é um número ou uma palavra
+    if (isNumber(input)) {
+        printf("A entrada é um número.\n");
+    } else {
+        printf("A entrada é uma palavra.\n");
+    }
+
+    // Verificar se a entrada é um palíndromo
+    if (isPalindrome(input)) {
+        printf("'%s' é um palíndromo.\n", input);
+    } else {
+        printf("'%s' não é um palíndromo.\n", input);
+    }
+
+    return 0;
+}
