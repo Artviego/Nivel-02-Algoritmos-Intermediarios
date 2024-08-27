@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int buscaBinaria(int vetor[], int tamanho, int alvo) {
+	int esquerda = 0;
+	int direita = tamanho - 1;
+	
+	
+	while (esquerda <= direita) {
+		int meio = (esquerda + direita) / 2;
+		
+		// Verifica se o alvo está no meio
+		if (vetor[meio] == alvo) {
+			return meio;
+		}
+		
+		else if (vetor[meio] > alvo) {  //S e o alvo for menor, ajusta o intervalo para a metade esquerda
+		    direita = meio - 1;
+			
+		} else {
+			esquerda = meio + 1;   // Se o alvo for maior, ajusta o intervalo para a metade direita
+			
+		}
+	}
+	
+	
+	return -1;   // Se chegar aqui, o alvo não foi encontrado
+}
+
+int main() {
+  setlocale(LC_ALL, "portuguese");
+  
+  // Variáveis
+  int tamanho, i, alvo;   
+  
+  
+  
+  
+  printf("Digite o número de elementos no vetor: ");
+     scanf("%d", &tamanho);	
+     
+  int vetor_ordenado[tamanho];  // Declara o vetor com o tamanho fornecido pelo usuário
+  
+  // Solicita os valores do vetor
+  printf("Digite os %d valores do vetor em ordem crescente:\n", tamanho);
+  for (i = 0; i < tamanho; i++) {
+  	   scanf("%d", &vetor_ordenado[i]);
+  	   
+  }
+  
+  // Solicita o valor alvo
+  printf("Digite o valor a ser buscado: ");
+    scanf("%d", &alvo);
+  
+
+  int indice = buscaBinaria(vetor_ordenado, tamanho, alvo);
+  
+  
+  // Exibe o resultado
+  if (indice != -1) {
+      printf("O valor %d está no índice %d.\n", alvo, indice);
+      
+  } else {
+  	  printf("O valor %d não foi encontrado no vetor.\n", alvo);
+  	  
+  }
+
+
+
+   return 0;
+}
