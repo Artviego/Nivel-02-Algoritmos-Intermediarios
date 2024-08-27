@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
+
+
+
+int main() {
+  setlocale(LC_ALL, "portuguese");
+  
+  int A[3][3], B[3][3], C[3][3];
+  int i = 0;
+  int j = 0;
+  
+  // Obtendo a primeira matriz 
+  for (i = 0; i < 3; i++) {
+  	   for (j = 0; j < 3; j++) {
+  	   	    printf("A[%d][%d]: ", i, j);
+  	   	       scanf("%d", &A[i][j]);
+  	   	       
+		 }
+  }
+  
+  printf("\n");
+  
+  // Obtendo a segunda matriz
+  for (i = 0; i < 3; i++) {
+  	   for (j = 0; j < 3; j++) {
+  	   	    printf("B[%d][%d]: ", i, j);
+  	   	       scanf("%d", &B[i][j]);
+		 }
+  }
+  
+  printf("\n");
+  
+  printf("\nSoma das matrizes: \n");
+  // Calculando e exibindo a soma
+  for (i = 0; i < 3; i++) {
+  	   for (j = 0; j < 3; j++) {
+  	   	    C[i][j] = A[i][j] + B[i][j];
+  	   	    
+  	   	    // \t é utilizado para organização da matriz tendo a função de tabulação
+  	   	    printf("%d\t", C[i][j]);
+  	   	    
+  	   	    // Quando j assumir valor 2 ocorrerá uma quebra de linha, caracterizando a estrutura da matriz
+  	   	    if (j == 2) printf("\n");
+  	   	       
+		 }
+  }
+  
+  
+  printf("\n");
+  
+  
+
+  return 0;
+}
