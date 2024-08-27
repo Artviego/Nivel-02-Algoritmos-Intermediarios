@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
+
+void decimal_para_binario (int decimal) {
+	char binario[33];    // Suporta números de até 32 bits + 1 para o caractere nulo
+	int i = 0;
+	int j = 0;
+	
+	if (decimal == 0) {
+		printf("O número binário é 0.\n");
+		
+		return;
+	}
+	
+	// Converte o número decimal para binário
+	while (decimal > 0) {
+		   binario[i++] = (decimal % 2) + '0'; // Armazena o resto da divisão (0 ou 1)
+		   decimal /= 2; // Divide o número decimal por 2 
+		   
+	}
+	
+	// Adiciona o caractere nulo ao final da string binária
+	binario[i] = '0';
+	
+	// Inverte a string binária para exibir o número correto
+	for (j = i; j >= 0; j--) {
+		 printf("%c", binario[j]);
+		 
+	}
+	printf("\n");
+	
+}
+
+
+
+
+int main() {
+  setlocale(LC_ALL, "portuguese");
+  
+  int decimal;
+  
+  // Solicita o número decimal ao usuário
+  printf("Digite um número decimal: ");
+     scanf("%d", &decimal);
+     
+  
+  // Converte o número decimal para binária e exibe o resultado
+  printf("O número decimal %d em binário é: ", decimal);
+  decimal_para_binario(decimal);
+  
+
+
+
+  return 0;
+}
