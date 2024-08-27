@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
+
+int binaria_para_decimal(const char *binario) {
+  int decimal = 0;
+  int comprimento = strlen(binario);
+
+  for (int i = 0; i < comprimento; i++) {
+    if (binario[i] == '1') {
+
+      // Calcula a posição do dígito binário e soma ao valor decimal
+      decimal += pow(2, comprimento - 1 - i);
+
+    } else if (binario[i] != '0') {
+
+      // Verifica se o caractere é válido
+      printf("Entrada inválida: '%c'. Apenas 0 e 1 são permitidos.\n", binario[i]);
+      return -1;
+
+    }	
+
+  }
+
+
+
+  return decimal;
+}
+
+
+
+
+
+int main() {
+  setlocale(LC_ALL, "portuguese");
+
+  char binario[65]; // Suporta números binários de até 64 bits
+
+  // Solicita o número binário ao usuário
+  printf("Digite um número (até 64 bits): ");
+     scanf("%64s", binario);  // Limita a entrada a 64 caracteres para evitar overflow
+
+
+  // Converte o número binário para decimal
+  int decimal = binaria_para_decimal(binario);
+
+  // Exibe o resultado
+  if (decimal != -1) {
+      printf("O número binário %s em decimal é %d.\n", binario, decimal);
+
+
+  }
+
+
+
+
+  return 0;
+}
