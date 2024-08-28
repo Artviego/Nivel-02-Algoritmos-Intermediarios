@@ -1,0 +1,44 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <locale.h>
+
+
+int main() {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int qntdVogais = 0;
+	char palavra[100];
+	int i = 0;
+	
+	printf("Digite uma palavra: ");
+	  fgets(palavra, 100, stdin);
+	  
+	// Conta a quantidade de vogais
+	for (i = 0; palavra[i] != '0'; i++) {
+		switch(palavra[i]) {
+		case 'a':
+			case 'e':
+				case 'i':
+					case 'o':
+						case 'u':
+							case 'A':
+								case 'E':
+									case 'I':
+										case 'O':
+											case 'U':
+												qntdVogais++;
+	    }
+	}
+	
+	if (qntdVogais == 1) {
+		printf("\nA palavra informada possui 1 vogal!\n");
+		
+	} else {
+		  printf("\nA palavra informada possui %d vogais!\n", qntdVogais);
+		  
+	}
+	 
+	
+	
+  return 0;
+}
