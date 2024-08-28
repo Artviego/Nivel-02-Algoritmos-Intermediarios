@@ -34,7 +34,7 @@ int main() {
   printf("\n");
   
   printf("\nSoma das matrizes: \n");
-  // Calculando e exibindo a soma
+  // Calculando e exibindo a multiplicação
   for (i = 0; i < 3; i++) {
   	   for (j = 0; j < 3; j++) {
   	   	    C[i][j] = A[i][j] * B[i][j];
